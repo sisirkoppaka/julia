@@ -3,7 +3,7 @@ testnames = [
     "linalg", "core", "keywordargs", "numbers", "strings", "dates",
     "dict", "hashing", "remote", "iobuffer", "staged", "arrayops",
     "subarray", "reduce", "reducedim", "random", "intfuncs",
-    "simdloop", "blas", "fft", "dsp", "sparse", "bitarray", "copy", "math",
+    "simdloop", "blas", "fft", "dsp", "sparsetests", "bitarray", "copy", "math",
     "fastmath", "functional", "bigint", "sorting", "statistics", "spawn",
     "backtrace", "priorityqueue", "arpack", "file", "version",
     "resolve", "pollfd", "mpfr", "broadcast", "complex", "socket",
@@ -24,12 +24,6 @@ end
 push!(testnames, "parallel")
 
 tests = (ARGS==["all"] || isempty(ARGS)) ? testnames : ARGS
-
-if "sparse" in tests
-    # specifically selected case
-    filter!(x -> x != "sparse", tests)
-    prepend!(tests, ["sparse/sparse", "sparse/cholmod", "sparse/umfpack"])
-end
 
 if "linalg" in tests
     # specifically selected case
