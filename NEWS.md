@@ -99,6 +99,8 @@ Library improvements
 
     * Large speedup in sparse ``\`` and splitting of Cholesky and LDLt factorizations into ``cholfact`` and ``ldltfact`` ([#10117])
 
+    * Add sparse least squares to ``\`` by adding ``qrfact`` for sparse matrices based on the SPQR library. ([#10180])
+
   * Other improvements
 
     * `convert` now checks for overflow when truncating integers or converting between
